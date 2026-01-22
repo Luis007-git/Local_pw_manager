@@ -8,7 +8,13 @@
 1) Add password
 2) Get password
 3) List sites
-4) Exit*/
+4) Exit
+ 
+User enters master password
+Run Argon2(password, salt) → master key
+Use AES-256-GCM to decrypt entire vault
+Vault lives in memory only while unlocked
+*/
 class PasswordManager {
     struct Credential {
         std::string user_name; 
@@ -21,6 +27,8 @@ class PasswordManager {
         bool unlocked;  
         std::string decrypt(const std::string& fname, const std::string& master_password);
         void parse_vault(const std::string decrypted_data, std::map<std::string,Credential>& vault);
+        void serialize(const std::string& fname,const std::map<std::string,Credential>& vault1, const std::string& master_password);
+    
 
     //on call before file opens ask for password
     public: 

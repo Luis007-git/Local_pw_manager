@@ -24,6 +24,7 @@ bool PasswordManager::unlock(const std::string& input_password){
 bool PasswordManager::addPassword(const std::string& website,
                 const std::string& user_name, 
                 const std::string& password){
+                    
 
 }
 std::string PasswordManager::getPassword(const std::string& web_name ){
